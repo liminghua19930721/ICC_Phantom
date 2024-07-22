@@ -11,20 +11,20 @@ def heat_map_plot(data, x_label=None, y_label=None, save_dict=None):
         x_label = [i for i in range(data.shape[1])]
     if y_label is None:
         y_label = [i for i in range(data.shape[0])]
-    # 定义颜色渐变的断点
+    
     colors = [(1, 1, 1), (0.8, 1, 0.8), (0, 0.5, 0)]  # R -> G -> B
     cmap = mcolors.LinearSegmentedColormap.from_list("custom_cmap", colors, N=100)
 
     fig, ax = plt.subplots(figsize=(10, 10))
 
-    # 使用pcolormesh绘制热度图，并为每个单元格添加黑色边框
+    
     x = np.arange(data.shape[1] + 1)
     y = np.arange(data.shape[0] + 1)
     c = ax.pcolormesh(x, y, data, cmap=cmap, edgecolor='black', linewidth=4, vmin=0.5, vmax=1, shading='auto')
 
     height = ax.get_window_extent().height
     txt_fontsize = height / max(len(x), len(y)) * 0.2
-    # 在每个单元格上显示数值
+   
     for i in range(data.shape[0]):
         for j in range(data.shape[1]):
             if data[i, j] < 0.75:
@@ -33,11 +33,11 @@ def heat_map_plot(data, x_label=None, y_label=None, save_dict=None):
                 else:
                     ax.text(j + 0.5, i + 0.5, f"{data[i, j]:.2f}", ha='center', va='center', color='black', fontsize=txt_fontsize)
 
-    # 添加颜色条
+    
     cbar = fig.colorbar(c, ax=ax, ticks=[0.5, 0.75, 0.85, 1], fraction=0.046, pad=0.04, shrink=0.8)
     cbar.ax.set_yticklabels(['0.5', '0.75', '0.85', '1'])
 
-    # 设置轴的限制和刻度
+    
     ax.set_aspect('equal')
     ax.set_xlim(0, data.shape[1])
     ax.set_ylim(0, data.shape[0])

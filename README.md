@@ -34,14 +34,14 @@ The `data` folder contains all the files with radiomic feature values. Here is a
 To use these scripts and templates, follow these steps:
 
 1. Clone the repository:
-    \`\`\`bash
+    ```bash
     git clone https://github.com/MaastrichtU-CDS/radiomics-ct-cbct-tianjin-3Dphantom.git
-    \`\`\`
+    ```
 
 2. Navigate to the repository directory:
-    \`\`\`bash
+    ```bash
     cd radiomics-ct-cbct-tianjin-3Dphantom
-    \`\`\`
+    ```
 
 3. Run ICC_analysis.py for ICC calculation. For more details on ICC analysis, see the [ICC Analysis Script](#icc-analysis-script) section below.
 
@@ -85,9 +85,9 @@ This script performs ICC calculations based on the provided parameters and data.
 
 Here is an example of how to run the script with the required arguments:
 
-\`\`\`bash
+```bash
 python ICC_analysis.py --input_path /path/to/input.txt --rows_number '0,15' --col_name FeatureName --output_path /path/to/output --subset_number 1
-\`\`\`
+```
 
 ### Script Description
 
