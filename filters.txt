@@ -1,0 +1,9 @@
+original
+wavelet-HHH
+wavelet-HHL
+wavelet-HLH
+wavelet-HLL
+wavelet-LHH
+wavelet-LHL
+wavelet-LLH
+wavelet-LLL
